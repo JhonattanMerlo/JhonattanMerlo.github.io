@@ -44,10 +44,9 @@ chatbot_input.addEventListener('keyup', function(e){
     let text = this.value
     let response = text.toLowerCase();
     user_text(response)
-    document.getElementById('chatbot_text_id').scrollTop -= 999999999999;
     chatbot_input.value=''; 
-      
     searchJsonFile(response)
+    document.getElementById('chatbot_text_id').scrollTop -= 999999999999;
   }
 });
 
