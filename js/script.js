@@ -125,16 +125,18 @@ const abrirCarrinho = () => {
         seleciona('main').style.display = 'flex' // mostrar barra superior
         
     }
-const abrirbotao = () =>{
-    seleciona('.menu-openner').addEventListener('click', () => {
-        seleciona('aside').classList.add('show')
-		seleciona('aside').style.display = 'flex'
-    })
+
 }
 
     // exibir aside do carrinho no modo mobile
    
-}
+    const abrirbotao = () =>{
+        seleciona('.menu-openner').addEventListener('click', () => {
+            console.log('Abriu')
+            seleciona('aside').classList.add('show')
+            seleciona('aside').style.display = 'flex'
+        })
+    }
 const fecharCarrinho = () => {
     // fechar o carrinho com o botão X no modo mobile
     seleciona('.menu-closer').addEventListener('click', () => {
