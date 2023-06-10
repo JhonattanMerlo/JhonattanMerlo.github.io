@@ -125,6 +125,12 @@ const abrirCarrinho = () => {
         seleciona('main').style.display = 'flex' // mostrar barra superior
         
     }
+const abrirbotao = () =>{
+    seleciona('.menu-openner').addEventListener('click', () => {
+        seleciona('aside').classList.add('show')
+		seleciona('aside').style.display = 'flex'
+    })
+}
 
     // exibir aside do carrinho no modo mobile
    
