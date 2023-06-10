@@ -277,8 +277,8 @@ produtoJson.map((item, index) =>{
    })
     
    mudarQuantidade()
-   abrirbotao()
    adicionaNoCarrinho()
    atualizarCarrinho()
     fecharCarrinho()
     finalizarCompra()
+    abrirbotao()
