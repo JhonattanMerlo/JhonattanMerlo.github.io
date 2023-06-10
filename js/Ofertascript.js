@@ -48,7 +48,6 @@ const preencheDadosModal = (item) => {
     // document.querySelector('.pizzaInfo--actualPrice').innerHTML = `R$ ${item.price.toFixed(2)}`
     seleciona('.ProdutoBig img').src = item.img
     seleciona('.ProdutoInfo h1').innerHTML = item.name
-    seleciona('.ProdutoInfo--desc').innerHTML = item.description
     seleciona('.ProdutoInfo--actualPrice s').innerHTML = `R$ ${item.price.toFixed(2)}`
     seleciona('.ProdutoInfo--actualPrice2').innerHTML = `R$ ${(item.price-(item.desc*item.price)).toFixed(2)}`
 }
@@ -249,17 +248,16 @@ const finalizarCompra = () => {
     })
 }
 
-ofertaJson.map((item, index) =>{
-    
+ofertaJson.map((item, index) =>{  
     let OfertaItem = document.querySelector('.models .Produto-item').cloneNode(true)
     seleciona('.Produto-area').append(OfertaItem)
 
     preencheDadosProduto(OfertaItem,item,index)
 
     //Produto Clicado
-    OfertaItem.querySelector('.Produto-item a').addEventListener('click', (e)   =>{
+    OfertaItem.addEventListener('click', (e)   =>{
         e.preventDefault()
-        console.log('Clicou ')
+        console.log('Clicou')
         
 
         let chave = pegarKey(e)

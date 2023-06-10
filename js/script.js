@@ -47,7 +47,6 @@ const preencheDadosModal = (item) => {
     // document.querySelector('.pizzaInfo--actualPrice').innerHTML = `R$ ${item.price.toFixed(2)}`
     seleciona('.ProdutoBig img').src = item.img
     seleciona('.ProdutoInfo h1').innerHTML = item.name
-    seleciona('.ProdutoInfo--desc').innerHTML = item.description
     seleciona('.ProdutoInfo--actualPrice').innerHTML = `R$ ${item.price.toFixed(2)}`
 }
 
@@ -245,7 +244,7 @@ produtoJson.map((item, index) =>{
     preencheDadosProduto(ProdutoItem,item,index)
 
     //Produto Clicado
-    ProdutoItem.querySelector('.Produto-item a').addEventListener('click', (e)   =>{
+    ProdutoItem.addEventListener('click', (e)   =>{
         e.preventDefault()
         console.log('Clicou ')
         

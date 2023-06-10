@@ -83,15 +83,21 @@ nav .link:nth-child(n+2):nth-child(-n+4) {
 aside{
     display: flex;
     flex-direction: column;
-    background-color:#ffcdd2;
+    background-color:rgb(219, 219, 219);
     width:0vw;
     height: 150vh;
     font-family:'Hepta Slab', Helvetica, Arial;
     transition:all ease .9s;
     overflow-x:hidden;
+    color: black;
+    font-weight: bolder;
 }
 aside.show{
     width:35vw;
+}
+.cart{
+    width: 100%;
+    margin-bottom:20px;
 }
 .cart--area{
     display: flex;
@@ -102,19 +108,42 @@ aside.show{
     align-content: center;
     width: 100%;
     height: auto;
+    margin: 5% 0;
 }
 .cart--area .menu-closer{
-    display: flex;
+    cursor: pointer;
     position: absolute;
     top: 3px;
     right: 3px;
+    width: 2vw;
+    height: 2vw;
+}
+.cart--area .menu-closer p{
+    color: red;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+}
+.cart--details{
+    display: flex;
+    flex-direction: column;
+}
+.cart--finalizar{
+    font-size: 1.3rem;
+    align-self: center;
 }
 .cart--item{
     display: flex;
+    width: 100%;
+    font-size: 1.5rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    padding-top: 30px;
+    border-top: solid black 1px;
 }
 .cart--item button{
     justify-items: center;
@@ -135,27 +164,27 @@ aside.show{
     width: 15vw;
     height: 15vw;
 }
-.cart {
-    margin-bottom:20px;
-}
 .cart--item-nome {
     flex:1;
-}
-.cart--item--qtarea button {
-    border:0;
-    background-color:transparent;
-    font-size:17px;
-    outline:0;
-    cursor:pointer;
-    padding:0px 10px;
-    color:#333;
+    margin: 10px 0 30px 0;
 }
 .cart--item--qt {
-    line-height: 30px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 0px 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 0px 10px;
     color:#000;
+}
+.cart--item--qtarea button {
+    width: 30px;
+    height: 30px;
+    font-weight: bolder;
+    border: solid 1px black;
+    border-radius: 30%;
+    background-color:transparent;
+    font-size:15px;
+    cursor:pointer;
+    color: black;
+    padding: 0 0 0 0;
 }
 .cart--totalitem {
     padding:15px 0;
@@ -163,6 +192,7 @@ aside.show{
     color:#315970;
     display:flex;
     justify-content: space-between;
+    margin: 0 5% 0 5%;
     font-size:15px;
 }
 .cart--totalitem span:first-child {
@@ -174,6 +204,9 @@ aside.show{
     font-weight: bold;
 }
 .cart--finalizar {
+    align-items: center;
+    width: 70%;
+    height: 30%;
     padding:20px 30px;
     border-radius:20px;
     background-color:#48d05f;
@@ -230,27 +263,39 @@ aside.show{
     grid-template-columns: repeat(3, 1fr);
 }
 .Produto-item{
+    cursor: pointer;
     text-align: center;
     max-width:250px;
     font-family:'Hepta Slab', Helvetica, Arial;
     margin:0 auto 50px auto;
 }
+.Produto-item:hover{
+    border: solid 2px var(--third-color);
+    padding: 2vw 2vw 2vw 2vw;
+    margin-top: -2vw;
+}
+.Produto-item:hover .Produto-item--add{
+    margin-top:-2vw;
+    width: 4vw;
+    height: 4vw;
+}
 .Produto-item a{
     display:flex;
+    width: 100%;
     flex-direction: column;
     align-items:center;
     text-decoration: none;
 }
 .Produto-item--img{
-    width: 20vw;
-    height: 20vw;
-    background-color: var(--background-color);
+    width: 100%;
+    height: 100%;
     border-radius: 10%;
     box-shadow:0px 10px 50px var(--third-color);
 }
 .Produto-item--img img{
+    
+    height: 100%;
     width:100%;
-    height:auto;
 }
 .Produto-item--add{
     margin-top:-1vw;
@@ -266,15 +311,18 @@ aside.show{
     cursor:pointer;
     transition:all ease .2s;
 }
-.Produto-item--add:hover{
-    margin-top:-2vw;
-    width: 4vw;
-    height: 4vw;
-}
 .Produto-item--price{
     font-size:2rem;
     color: var(--text-color);
     margin-top:5px;
+}
+.Produto-item s{
+    color: #d32f2f;
+    font-size: 1.5rem;
+}
+.Produto-item--price2{
+    font-size: 2.5rem;
+    color:#35af4a;
 }
 .Produto-item--name{
     font-size:1.3rem;
@@ -303,7 +351,9 @@ aside.show{
     flex-direction: row;
     align-items: center;
     width: 75vw;
+    min-width: 1000px;
     height: 70vh;
+    min-height: 300px;
     background-color:var(--background-color);
     box-shadow:0px 0px 15px var(--main-color);
     border-radius:10px;
@@ -327,7 +377,7 @@ aside.show{
     color: var(--text-color);
 }
 .ProdutoInfo h1{
-    margin-top:50px; 
+    margin: 50px 15px 0 0;
 }
 .ProdutoInfo--price{
     display:flex;
@@ -337,11 +387,22 @@ aside.show{
     font-size:28px;
     margin-right:30px;
 }
+.ProdutoInfo--actualPrice s{
+    color: #d32f2f;
+    font-size: 1.5rem;
+    margin-right:30px;
+}
+.ProdutoInfo--actualPrice2{
+    font-size: 2.5rem;
+    margin-right:30px;
+    color:#35af4a;
+}
 .ProdutoInfo--qtarea{
     display:inline-flex;
     background-color:var(--text-color);
     border-radius:10px;
     height:30px;
+    margin: 0 15px
 }
 .ProdutoInfo--qtarea button{
     border:0;
