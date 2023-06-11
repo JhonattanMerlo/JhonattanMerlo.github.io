@@ -141,15 +141,3 @@ function searchJsonFile(keyword) {
     })
     .catch(error => console.error(error));
 }
-
-//function searchJson(jsonObject, keyword) {
-//  for (const key in jsonObject) {
-//   const value = jsonObject[key];
-//    if (typeof value === 'object') {
-//      console.log('passei')
-//      searchJson(value, keyword);
-//    } else if (typeof value === 'string' && value.includes(keyword)) {
-//      console.log(`Encontrado "${keyword}" em ${key}: ${value}`);
-//    }
-//  }
-//}

@@ -11,18 +11,15 @@ const seleciona = (elemento) => document.querySelector(elemento)
 const selecionaTodos = (elemento) => document.querySelectorAll(elemento)
 
 
-
 const abrirModal = () => {
     seleciona('.ProdutoWindowArea').style.opacity = 0
     seleciona('.ProdutoWindowArea').style.display = 'flex'
     setTimeout(() => seleciona('.ProdutoWindowArea').style.opacity = 1, 150)
 }
-
 const fecharModal = () => {
     seleciona('.ProdutoWindowArea').style.opacity = 0
     setTimeout(() => seleciona('.ProdutoWindowArea').style.display = 'none', 500)
 }
-
 const botoesFechar = () => {
 
     // BOTOES FECHAR MODAL
@@ -30,7 +27,6 @@ const botoesFechar = () => {
         item.addEventListener('click', fecharModal)
     })
 }
-
 const preencheDadosProduto = (ProdutoItem, item,index ) => {
     ProdutoItem.setAttribute('data-key', index)
     ProdutoItem.querySelector('data-key', index)
@@ -39,7 +35,6 @@ const preencheDadosProduto = (ProdutoItem, item,index ) => {
     ProdutoItem.querySelector('.Produto-item--name').innerHTML = item.name
     
 }
-
 const preencheDadosModal = (item) => {
     // document.querySelector('.pizzaBig img').src = item.img
     // document.querySelector('.pizzaInfo h1').innerHTML = item.name
@@ -49,7 +44,6 @@ const preencheDadosModal = (item) => {
     seleciona('.ProdutoInfo h1').innerHTML = item.name
     seleciona('.ProdutoInfo--actualPrice').innerHTML = `R$ ${item.price.toFixed(2)}`
 }
-
 const pegarKey = (e) => {
     // .closest retorna o elemento mais proximo que tem a class que passamos
     // do .pizza-item ele vai pegar o valor do atributo data-key
@@ -79,7 +73,6 @@ const mudarQuantidade = () => {
         }
     })
 }
-
 const adicionaNoCarrinho= () => {
     seleciona('.ProdutoInfo--addButton').addEventListener('click', () => {
         console.log('Adicionar ao carrinho')
@@ -110,12 +103,10 @@ const adicionaNoCarrinho= () => {
             console.log(Produto)
             console.log('Sub total R$ ' + (Produto.qt * Produto.price).toFixed(2))
         }
-
         fecharModal()
         abrirCarrinho()
         atualizarCarrinho()
     })
-
 }
 const abrirCarrinho = () => {
    
@@ -127,16 +118,23 @@ const abrirCarrinho = () => {
     }
 
 }
-
-    // exibir aside do carrinho no modo mobile
-   
-    const abrirbotao = () =>{
+const abrirbotao = () =>{
         seleciona('.menu-openner').addEventListener('click', () => {
-            console.log('Abriu')
+            console.log('teste2')
+        if(cart.length > 0){
+            seleciona('.blank-menu').style.display = 'none'
+            seleciona('.cart--area').style.display = 'flex'
             seleciona('aside').classList.add('show')
-            seleciona('aside').style.display = 'flex'
+		    seleciona('aside').style.display = 'flex'
+        }
+        else{
+            seleciona('.cart--area').style.display = 'none'
+            seleciona('.blank-menu').style.display = 'flex'
+            seleciona('aside').classList.add('show')
+		    seleciona('aside').style.display = 'flex'
+        }
         })
-    }
+}
 const fecharCarrinho = () => {
     // fechar o carrinho com o botão X no modo mobile
     seleciona('.menu-closer').addEventListener('click', () => {
@@ -152,6 +150,8 @@ const atualizarCarrinho = () => {
 	if(cart.length > 0) {
 
 		// mostrar o carrinho
+		seleciona('.blank-menu').style.display = 'none'
+        seleciona('.cart--area').style.display = 'flex'
 		seleciona('aside').classList.add('show')
 
 		// zerar meu .cart para nao fazer insercoes duplicadas
@@ -232,7 +232,6 @@ const atualizarCarrinho = () => {
 		seleciona('aside').style.left = '100vw'
 	}
 }
-
 const finalizarCompra = () => {
     seleciona('.cart--finalizar').addEventListener('click', () => {
         console.log('Finalizar compra')
@@ -243,7 +242,6 @@ const finalizarCompra = () => {
         cart.length=0
     })
 }
-
 produtoJson.map((item, index) =>{
     
     let ProdutoItem = document.querySelector('.models .Produto-item').cloneNode(true)
@@ -273,14 +271,12 @@ produtoJson.map((item, index) =>{
         
         
     })
-
     botoesFechar()
-
-   })
+})
     
-   mudarQuantidade()
-   adicionaNoCarrinho()
-   atualizarCarrinho()
-    fecharCarrinho()
-    finalizarCompra()
-    abrirbotao()
+mudarQuantidade()
+adicionaNoCarrinho()
+atualizarCarrinho()
+fecharCarrinho()
+finalizarCompra()
+abrirbotao()
