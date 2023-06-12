@@ -85,9 +85,9 @@ h1{
     width: 80%;
     padding: 5%;
     margin: 5vh 0;
-    border: solid 10px rgba(24, 51, 56, 0.58);
+    border: solid 10px rgba(109, 7, 95, 0.993);
     border-radius: 10%;
-    background-color: rgba(92, 214, 236, 0.58);
+    background-color: rgb(145, 21, 114);
 }
 .conteudo p{
     margin: 20px 0;
@@ -174,7 +174,7 @@ nav .link:nth-child(n+2):nth-child(-n+4) {
 aside{
     display: flex;
     flex-direction: column;
-    background-color:rgb(219, 219, 219);
+    background-color:#6e1555;
     width:0vw;
     height: 150vh;
     font-family:'Hepta Slab', Helvetica, Arial;
@@ -206,6 +206,11 @@ aside.show{
     height: auto;
     margin: 5% 0;
 }
+
+.cart--area > h1{
+    color: whitesmoke;
+}
+
 aside .menu-closer{
     cursor: pointer;
     display: flex;
@@ -240,7 +245,7 @@ aside .menu-closer p{
     justify-content: center;
     margin-bottom: 30px;
     padding-top: 30px;
-    border-top: solid black 1px;
+    border-top: solid rgb(210, 50, 231) 1px;
 }
 .cart--item button{
     justify-items: center;
@@ -256,6 +261,7 @@ aside .menu-closer p{
     height: 100%;
     align-items: center;
     justify-content: center;
+    
 }
 .cart--item img{
     width: 15vw;
@@ -264,29 +270,30 @@ aside .menu-closer p{
 .cart--item-nome {
     flex:1;
     margin: 10px 0 30px 0;
+    color: whitesmoke;
 }
 .cart--item--qt {
     font-size: 1rem;
     font-weight: bolder;
     padding: 0px 10px;
-    color:#000;
+    color:whitesmoke;
 }
 .cart--item--qtarea button {
     width: 30px;
     height: 30px;
     font-weight: bolder;
-    border: solid 1px black;
+    border: solid 1px whitesmoke;
     border-radius: 30%;
     background-color:transparent;
     font-size:15px;
     cursor:pointer;
-    color: black;
+    color: whitesmoke;
     padding: 0 0 0 0;
 }
 .cart--totalitem {
     padding:15px 0;
-    border-top:1px solid #d32f2f;
-    color:#315970;
+    border-top:1px solid #ff3df5;
+    color:whitesmoke;
     display:flex;
     justify-content: space-between;
     margin: 0 5% 0 5%;
@@ -297,7 +304,7 @@ aside .menu-closer p{
 }
 .cart--totalitem.big {
     font-size:20px;
-    color:#000;
+    color: whitesmoke;
     font-weight: bold;
 }
 .cart--finalizar {
