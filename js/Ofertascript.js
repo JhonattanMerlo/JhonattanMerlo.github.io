@@ -261,7 +261,7 @@ ofertaJson.map((item, index) =>{
     OfertaItem.addEventListener('click', (e)   =>{
         e.preventDefault()
         console.log('Clicou')
-
+	 let chave = pegarKey(e)
         //abrir a janela modal
         abrirModal()
         //preenchimento dos dados
