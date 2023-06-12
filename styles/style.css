@@ -87,7 +87,7 @@ h1{
     margin: 5vh 0;
     border: solid 10px rgba(109, 7, 95, 0.993);
     border-radius: 10%;
-    background-color: rgb(145, 21, 114);
+    background-color: var(--third-color);
 }
 .conteudo p{
     margin: 20px 0;
@@ -109,23 +109,32 @@ h1{
 
 
 */
-
 header{
     display: flex;
     align-items: center;
     border: solid var(--main-color);
     height: 10vh;
+    min-height: 50px;
     text-align: center;
     text-decoration: none;
     padding: 10px;
 }
 header > a{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
     height: 100%;
-    width: min-content;
+    width: 40%;
 }
 a .logo{
     height: 100%;
     object-position: left;
+}
+a > p{
+    color: var(--main-color);
+    align-self: center;
+    margin-left: 10%;
+    font-size: 2rem;
 }
 nav{
     display: flex;
@@ -191,6 +200,9 @@ aside.show{
     height: 100%;
     align-items: center;
     justify-self: center;
+}
+.blank-menu h1{
+    color: var(--text-color)
 }
 .cart{
     width: 100%;
@@ -606,3 +618,119 @@ footer div img{
     width: 5vh;
     margin: 1vh;
 }
+
+@media only screen and (max-width: 1100px) {
+    .Produto-area{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header > a{
+        width: 50%;
+    }
+    header > nav{
+        width: 50%;
+    }
+    .ProdutoWindowBody {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75vw;
+        min-width: 500px;
+        height: 70vh;
+        min-height: 300px;
+        background-color: var(--background-color);
+        box-shadow: 0px 0px 15px var(--main-color);
+        border-radius: 10px;
+        
+    }
+}
+@media only screen and (max-width: 900px) {
+    .Produto-area{
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    header > a{
+        width: 50%;
+    }
+    .menu-openner{
+        margin-left: 2vw;
+    }
+    .menu-openner span{
+        display:none;
+    }
+    .ProdutoWindowBody {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75vw;
+        min-width: 500px;
+        height: 70vh;
+        min-height: 300px;
+        background-color: var(--background-color);
+        box-shadow: 0px 0px 15px var(--main-color);
+        border-radius: 10px;
+        
+    }
+    .ProdutoWindowBody h1{
+        align-self: center;
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .Produto-area{
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    header > a {
+        width: auto;
+    }
+    a .logo{
+        width: auto;
+    }
+    a > p{
+        display: none;
+    }
+    header nav{
+        right: 0;
+    }
+    .menu-openner{
+        margin-left: 2vw;
+    }
+    .menu-openner span{
+        display:none;
+    }
+    .ProdutoWindowBody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90vw;
+        min-width: 0;
+        height: 90vh;
+        background-color: var(--background-color);
+        box-shadow: 0px 0px 15px var(--main-color);
+        border-radius: 10px;
+        
+    }
+    .ProdutoWindowBody h1 + .ProdutoWindowBody p{
+        align-self: cneter;
+        align-self: center;
+        font-size: 1rem;
+    }
+    .ProdutoInfo{
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+    }
+    .ProdutoInfo--price{
+        display: flex;
+        flex-direction: column;
+    }
+    .ProdutoInfo--price h1 + .ProdutoInfo--price p{
+        font-size: 1rem;
+    }
+  }
