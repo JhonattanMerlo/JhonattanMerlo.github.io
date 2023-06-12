@@ -56,7 +56,7 @@ let produtoJson =[
 
     {id:12, 
         name:"Jogo Demon's Soul's PS5", 
-        img:'/imgs/imagens_produtos/Demonps5.jpeg',
+        img:'/imgs/imagens_produtos/Demps5.jpeg',
         price:299.99},
 
     {id:13, 
