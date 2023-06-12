@@ -9,6 +9,7 @@ let cart = []
 
 const seleciona = (elemento) => document.querySelector(elemento)
 const selecionaTodos = (elemento) => document.querySelectorAll(elemento)
+const obrigado = document.querySelector('.compra_finalizada')
 
 
 
@@ -242,9 +243,13 @@ const finalizarCompra = () => {
         seleciona('aside').style.left = '100vw'
         seleciona('header').style.display = 'flex'
         seleciona('.menu-openner span').innerHTML = 0
-        cart.length=0 
+        cart.length=0
+        obrigado.style.display = 'flex' 
     })
 }
+obrigado.addEventListener('click', (e)   =>{
+    obrigado.style.display = 'none'
+})
 ofertaJson.map((item, index) =>{  
     let OfertaItem = document.querySelector('.models .Produto-item').cloneNode(true)
     seleciona('.Produto-area').append(OfertaItem)

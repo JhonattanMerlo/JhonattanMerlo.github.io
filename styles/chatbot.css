@@ -12,10 +12,11 @@
 
 
 */
-footer{
+.chatbot{
     position: fixed;
     bottom: 3vw;
     right: 3vw;
+    z-index: 100;
 }
 #botao{
     display: flex;
@@ -51,8 +52,8 @@ footer{
     justify-items: center;
     flex-direction: column;
     background-color: #000000f6;
-    height: 88vh;
-    width: 25vw;
+    height: 80vh;
+    width: 50vw;
     border: 3px solid var(--third-color);
     transition:all ease .3s;
 }
