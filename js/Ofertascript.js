@@ -1,27 +1,31 @@
 //funcoes auxiliares ou uteis
 
 let modalKey = 0
-
+//variavel para a quantidade de produtos
 let quantProdutos = 1
 
 let cart = []
 
-
+// funcoes auxiliares
 const seleciona = (elemento) => document.querySelector(elemento)
 const selecionaTodos = (elemento) => document.querySelectorAll(elemento)
 const obrigado = document.querySelector('.compra_finalizada')
 
 
-
+//abre a janela modal
 const abrirModal = () => {
     seleciona('.ProdutoWindowArea').style.opacity = 0
     seleciona('.ProdutoWindowArea').style.display = 'flex'
     setTimeout(() => seleciona('.ProdutoWindowArea').style.opacity = 1, 150)
 }
+
+//fecha a janela modal
 const fecharModal = () => {
     seleciona('.ProdutoWindowArea').style.opacity = 0
     setTimeout(() => seleciona('.ProdutoWindowArea').style.display = 'none', 500)
 }
+
+//botao que fecha a janela modal
 const botoesFechar = () => {
 
     // BOTOES FECHAR MODAL
@@ -78,21 +82,25 @@ const mudarQuantidade = () => {
         }
     })
 }
+
+//adicao das informacoes do produto no carrinho
 const adicionaNoCarrinho= () => {
     seleciona('.ProdutoInfo--addButton').addEventListener('click', () => {
         console.log('Adicionar ao carrinho')
 
         console.log("Produto "+ modalKey)
         console.log("Quant. " + quantProdutos)
-
+        //preco
         let price = seleciona('.ProdutoInfo--actualPrice').innerHTML.replace('R$&nbsp;', '')
         console.log(price)
 
+        //identificacao do produto
         let identificador = ofertaJson[modalKey].id
 
+        //verificacao para ver se tem aquele mesmo produto no carrinho
         let key = cart.findIndex((item) => item.identificador == identificador)
         console.log('esta é a key= '+ key)
-
+        
         if(key > -1) {
             // se encontrar aumente a quantidade
             cart[key].qt += quantProdutos
@@ -115,6 +123,8 @@ const adicionaNoCarrinho= () => {
     })
 
 }
+
+//abre o carrinho
 const abrirCarrinho = () => {
     console.log('Qtd de itens no carrinho ' + cart.length)
     if(cart.length > 0) {
@@ -123,6 +133,8 @@ const abrirCarrinho = () => {
         seleciona('main').style.display = 'flex' // mostrar barra superior
     }
 }
+
+//abre o carrinho apertando o botão do carrinho
 const abrirbotao = () =>{
     seleciona('.menu-openner').addEventListener('click', () => {
         console.log('teste2')
@@ -140,13 +152,16 @@ const abrirbotao = () =>{
         }
     })
 }
+
+// fechar o carrinho com o botão X
 const fecharCarrinho = () => {
-    // fechar o carrinho com o botão X
     seleciona('.menu-closer').addEventListener('click', () => {
         seleciona('aside').classList.remove('show')
 		seleciona('aside').style.left = '100vw'
     })
 }
+
+//atualiza as informações da janela do carrinho
 const atualizarCarrinho = () => {
     // exibir número de itens no carrinho
 	seleciona('.menu-openner span').innerHTML = cart.length
@@ -159,7 +174,7 @@ const atualizarCarrinho = () => {
         seleciona('.cart--area').style.display = 'flex'
 		seleciona('aside').classList.add('show')
 
-		// zerar meu .cart para nao fazer insercoes duplicadas
+		// zerar o .cart para nao fazer insercoes duplicadas
 		seleciona('.cart').innerHTML = ''
 
         // crie as variaveis antes do for
@@ -175,7 +190,7 @@ const atualizarCarrinho = () => {
 
             // em cada item pegar o subtotal
         	subtotal += cart[i].price * cart[i].qt
-            //console.log(cart[i].price)
+            
 
 			// fazer o clone, exibir na telas e depois preencher as informacoes
 			let cartItem = seleciona('.models .cart--item').cloneNode(true)
@@ -217,11 +232,8 @@ const atualizarCarrinho = () => {
 
 			seleciona('.cart').append(cartItem)
 
-		} // fim do for
-
-		// fora do for
-		// calcule desconto 10% e total
-		//desconto = subtotal * 0.1
+		}
+        //calculo do desconto
 		desconto = subtotal * ofertaJson[modalKey].desc
 		total = subtotal - desconto
 
@@ -237,6 +249,8 @@ const atualizarCarrinho = () => {
 		seleciona('aside').style.left = '100vw'
 	}
 }
+
+//ao apertar o botão FINALIZAR A COMPRA a janela do carrinho se fecha e abre a janela "OBRIGADO PELA SUA COMPRA"
 const finalizarCompra = () => {
     seleciona('.cart--finalizar').addEventListener('click', () => {
         console.log('Finalizar compra')
@@ -248,13 +262,18 @@ const finalizarCompra = () => {
         obrigado.style.display = 'flex' 
     })
 }
+
+//janela do OBRIGADO PELA SUA COMPRA
 obrigado.addEventListener('click', (e)   =>{
     obrigado.style.display = 'none'
 })
+
+//Mapeia ofertaJson para gerar a lista dos produtos com desconto
 ofertaJson.map((item, index) =>{  
+
     let OfertaItem = document.querySelector('.models .Produto-item').cloneNode(true)
     seleciona('.Produto-area').append(OfertaItem)
-
+    //preenche os dados de cada produto
     preencheDadosProduto(OfertaItem,item,index)
 
     //Produto Clicado
@@ -266,6 +285,8 @@ ofertaJson.map((item, index) =>{
         abrirModal()
         //preenchimento dos dados
        preencheDadosModal(item)
+
+       //define a quantidade inicial como 1
        seleciona('.ProdutoInfo--qt').innerHTML = quantProdutos
 
     })
