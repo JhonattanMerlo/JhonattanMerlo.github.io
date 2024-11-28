@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+
+body {
+    font-family: "Outfit", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: flex-start; /* Alinhando logo e formulário horizontalmente */
+    justify-content: center;
+    gap: 30px; /* Maior espaçamento entre logo e formulário */
+    width: 100%;
+    max-width: 900px;
+}
+
+.logo-container img {
+    width: 100px; /* Tamanho da logo aumentado */
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    max-width: 450px; /* Aumentando largura do formulário */
+    padding: 20px; /* Padding maior */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 15px; /* Espaço maior entre os campos */
+}
+
+form h1 {
+    flex-basis: 100%;
+    font-size: 16px; /* Título levemente maior */
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-container {
+    flex-basis: 100%; /* Campos ocupando toda a largura */
+}
+
+.input-container label {
+    font-size: 12px; /* Fonte um pouco maior */
+    margin-bottom: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 6px; /* Padding ajustado para maior conforto */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 12px; /* Fonte levemente maior */
+    color: #333;
+    height: 30px; /* Altura ajustada */
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-basis: 100%;
+}
+
+.password-container label {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.togglePassword {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button {
+    flex-basis: 100%;
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 8px; /* Padding maior */
+    border-radius: 6px;
+    font-size: 13px; /* Fonte maior */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    flex-basis: 100%;
+    text-align: center;
+    color: #007BFF;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Alinhamento vertical em telas menores */
+        gap: 20px; /* Menor espaço entre logo e formulário */
+    }
+
+    form {
+        width: 100%;
+    }
+}

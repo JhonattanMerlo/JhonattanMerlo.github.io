@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./central.css">
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+    
+    .dashboard-summary {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .dashboard-summary h2 {
+        margin-top: 0;
+    }
+    .dashboard-summary p {
+        margin: 10px 0;
+    }
+    .dashboard-summary span {
+        font-weight: bold;
+    }
+</style>
+<body>
+    <header>
+        <div id="title">
+            <h1>Agenda</h1>
+        </div>
+        <nav>
+            <ul>
+                <a href="./central_usuario.html"><li>Início</li></a>
+                <a href="./central.html"><li>Agendamento</li></a>
+                <a href="./Dashboard.html"><li>Dashboard</li></a>
+                <a href="Sobre.html"><li>Sobre nós</li></a>
+                <a href="index.html"><li>Sair</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-summary">
+        <h2>Resumo</h2>
+        <p>Total de Agendamentos: <span id="totalAgendamentos">0</span></p>
+        <p>Total de Cancelamentos: <span id="totalCancelamentos">0</span></p>
+        <p>Total de Valor em Serviços: <span id="totalValor">R$ 0,00</span></p>
+    </div>
+
+    <table class="cliente-area">
+        <tr>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>Tipo de serviço</th>
+            <th>Valor</th>
+            <th>Cancelamento</th>
+        </tr>
+        <div class="tabela">
+        <tr class="models" style="display: none;">
+            <th class="datacorte"></th>
+            <th class="nomecliente"></th>
+            <th class="tiposerv"></th>
+            <th class="preco">R$ </th>
+            <th><button class="abrirPopup">Cancela</button></th>
+        </tr>
+        </div>
+    </table>
+        
+    <div class="popup" id="popup">
+        <div class="popup-conteudo">
+            <span class="fecharPopup" id="fecharPopup">&times;</span>
+            <h2>Nos conte o Motivo do Cancelamento</h2>
+            <input type="text" required>
+            <button id="EnviarCancel">Enviar</button>
+        </div>
+    </div>
+
+    <script src="central.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
